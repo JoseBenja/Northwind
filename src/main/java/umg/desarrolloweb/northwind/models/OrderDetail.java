@@ -1,26 +1,28 @@
 package umg.desarrolloweb.northwind.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Getter
 @Setter
 @Entity
-@Table(name = "orderDetails", schema = "northwind")
+@Table(name = "orderdetails", schema = "northwind")
 public class OrderDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "orderDetailid")
-    private Long orderDetailID;
+    @Column(name = "orderdetailid")
+    private Long orderDetailId;
 
     @Column(name = "orderid")
-    private Integer orderID;
+    private Long orderId;
 
     @Column(name = "productid")
-    private Integer productID;
+    private Integer productId;
 
     @Column(name = "quantity")
     private Integer quantity;
